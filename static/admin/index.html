@@ -7,12 +7,64 @@
 
     <title>Content Manager</title>
 
-    <link rel="stylesheet" href="https://unpkg.com/netlify-cms@~0.4/dist/cms.css" />
+    <link rel="stylesheet" href="https://unpkg.com/netlify-cms@~0.5/dist/cms.css" />
 
 </head>
 <body>
 
+    <!--
     <script src="https://unpkg.com/netlify-cms@~0.4/dist/cms.js"></script>
+    <script>
+        var HeadlineControl = createClass({
+          handleChange: function(e) {
+            this.props.onChange(e.target.value.split(',').map((e) => e.trim()));
+          },
+        
+          render: function() {
+            var value = this.props.value;
+            return h('div', {'className' : 'headline'},
+                h('input', { 'className' : 'headline__title', type: 'text', value: value ? value.join(', ') : '', onChange: this.handleChange }),
+                h('input', { 'className' : 'headline__text', type: 'color'}),
+            );
+          }
+        });
+        
+        var HeadlinePreview = createClass({
+          render: function() {
+            return h('ul', {},
+              this.props.value.map(function(val, index) {
+                return h('li', {key: index}, val);
+              })
+            );
+          }
+        });
+        
+        CMS.registerWidget('headline', HeadlineControl, HeadlinePreview);
+    </script> 
+    -->
+
+
+    <script src="https://unpkg.com/netlify-cms@~0.5/dist/cms.js"></script>
+    <script>
+        var PagePreview = createClass({
+            render: function() {
+                var entry = this.props.entry;
+                console.log('entry: ' + entry);
+                var image = entry.getIn(['data', 'image']);
+                var bg = this.props.getAsset(image);
+                var pageTheme = entry.getIn(['data', 'page_theme'])
+                return h('div', {'className' : ['page page--' + pageTheme]},
+                    h('div',{'className' : 'page__header'}, 
+                        h('h1', {'className' : 'page__title'}, entry.getIn(['data', 'title'])),
+                        h('p', {'className' : 'page__subtitle'}, entry.getIn(['data', 'subtitle'])),
+                    )
+                );
+            }
+        });
+
+        CMS.registerPreviewTemplate("page", PagePreview);
+        CMS.registerPreviewStyle("/css/app.css");
+    </script>
 
 </body>
 </html>
