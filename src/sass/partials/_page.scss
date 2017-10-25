@@ -3,17 +3,31 @@
     max-width: 100%;
     margin: 50px auto;
 
-    &__title{
+    &__title {
         font-size: 44px;
         line-height: 52px;
-        color: #a31a7e;
+        color: gray;
         text-align: center;
         font-weight: 300;
     }
+
     &__subtitle {
         text-align: center;
         font-size: 22px;
         line-height: 36px;
         color: #666;
+        padding: 0 15px;
+    }
+
+    &--allports {
+        .page__title {
+            color: $color-allports;
+        }
+    }
+
+    &--vivid-violet {
+        .page__title {
+            color: $color-vivid-violet;
+        }
     }
 }

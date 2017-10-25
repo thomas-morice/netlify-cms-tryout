@@ -7,15 +7,23 @@ media_folder: "static/uploads"
 public_folder: "/uploads"
 collections:
   
-  - name: "page"
-    label: "Page"
+  - name: "about"
+    label: "About"
     folder: "content"
     create: true
     slug: "{{slug}}"
     fields:
-      - { label: "Page theme", name: "page_theme", widget: "select", options: ['Select a theme', 'vivid_violet', violet_eggplant]}
+      - { label: "Page theme", name: "page_theme", widget: "select", options: ['Select a theme', 'vivid-violet', allports]}
       - { label: "Title", name: "title", widget: "string"}
-      - { label: "Subtitle", name: "subtitle", widget: "markdown"}
+      - name: headline
+        label: Headline
+        widget: object
+        fields:
+          - {label: Headline title, name: title, widget: string}
+          - {label: Headline text, name: text, widget: markdown}
+      #- { label: "Publish Date", name: "date", widget: "datetime" }
+      #- { label: "Body", name: "body", widget: "markdown" }
+      #- { label: "Subtitle", name: "subtitle", widget: "markdown"}
       #- name: Headline
       #  label: Headline
         #widget: object
@@ -24,3 +32,18 @@ collections:
         #  - {label: Headline text, name: headline_text, widget: markdown}
       #- { label: "Publish Date", name: "date", widget: "datetime" }
       #- { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "science"
+    label: "Science"
+    folder: "content"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Page theme", name: "page_theme", widget: "select", options: ['Select a theme', 'vivid-violet', allports]}
+      - { label: "Title", name: "title", widget: "string"}
+      - name: headline
+        label: Headline
+        widget: object
+        fields:
+          - {label: Headline title, name: title, widget: string}
+          - {label: Headline text, name: text, widget: markdown}

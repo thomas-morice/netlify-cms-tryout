@@ -1,6 +1,6 @@
 baseURL = "/"
 languageCode = "en-gb"
-title = "Natural cycles"
+title = "Natural Cycles"
 
 disableKinds = ["RSS"]
 enableRobotsTXT = true

@@ -46,7 +46,7 @@
 
     <script src="https://unpkg.com/netlify-cms@~0.5/dist/cms.js"></script>
     <script>
-        var PagePreview = createClass({
+        var AboutPreview = createClass({
             render: function() {
                 var entry = this.props.entry;
                 console.log('entry: ' + entry);
@@ -55,14 +55,31 @@
                 var pageTheme = entry.getIn(['data', 'page_theme'])
                 return h('div', {'className' : ['page page--' + pageTheme]},
                     h('div',{'className' : 'page__header'}, 
-                        h('h1', {'className' : 'page__title'}, entry.getIn(['data', 'title'])),
-                        h('p', {'className' : 'page__subtitle'}, entry.getIn(['data', 'subtitle'])),
+                        h('h1', {'className' : 'page__title'}, entry.getIn(['data', 'headline', 'title'])),
+                        h('p', {'className' : 'page__subtitle'}, entry.getIn(['data', 'headline', 'text'])),
                     )
                 );
-            }
+            } 
         });
 
-        CMS.registerPreviewTemplate("page", PagePreview);
+        var SciencePreview = createClass({
+            render: function() {
+                var entry = this.props.entry;
+                console.log('entry: ' + entry);
+                var image = entry.getIn(['data', 'image']);
+                var bg = this.props.getAsset(image);
+                var pageTheme = entry.getIn(['data', 'page_theme'])
+                return h('div', {'className' : ['page page--' + pageTheme]},
+                    h('div',{'className' : 'page__header'}, 
+                        h('h1', {'className' : 'page__title'}, entry.getIn(['data', 'headline', 'title'])),
+                        h('p', {'className' : 'page__subtitle'}, entry.getIn(['data', 'headline', 'text'])),
+                    )
+                );
+            } 
+        });
+
+        CMS.registerPreviewTemplate("about", AboutPreview);
+        CMS.registerPreviewTemplate("science", SciencePreview);
         CMS.registerPreviewStyle("/css/app.css");
     </script>
 
