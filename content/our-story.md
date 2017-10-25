@@ -1,5 +1,5 @@
 ---
-page_theme: violet-eggplant
+page_theme: vivid-violet
 title: Our story
 subtitle: >-
   The idea of Natural Cycles came about when the founders, Elina and Raoul, were
