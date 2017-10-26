@@ -7,5 +7,6 @@ headline:
     were in search of an effective method of natural contraception. Going from
     physics straight into health tech for women.
   title: Our story
+story_image: /uploads/elina-raoul.png
 ---
 
