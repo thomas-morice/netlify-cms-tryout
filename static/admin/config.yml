@@ -6,21 +6,66 @@ backend:
 media_folder: "static/uploads"
 public_folder: "/uploads"
 collections:
-  
-  - name: "about"
-    label: "About"
-    folder: "content"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "Page theme", name: "page_theme", widget: "select", options: ['Select a theme', 'vivid-violet', allports]}
-      - { label: "Title", name: "title", widget: "string"}
-      - name: headline
-        label: Headline
-        widget: object
+  - name: "post" # Used in routes, ie.: /admin/collections/:slug/edit
+    label: "Post" # Used in the UI, ie.: "New Post"
+    folder: "site/content/post" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    fields: # The fields each document in this collection have
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Intro Blurb", name: "description", widget: "text"}
+      - {label: "Image", name: "image", widget: "image", required: false}
+      - {label: "Body", name: "body", widget: "markdown"}
+  - name: "pages"
+    label: "Pages"
+    files:
+      - file: "content/about.md"
+        label: "About Page"
+        name: "about"
         fields:
-          - {label: Headline title, name: title, widget: string}
-          - {label: Headline text, name: text, widget: markdown}
+          - { label: "Page theme", name: "page_theme", widget: "select", options: ['Select a theme', 'vivid-violet', allports]}
+          - { label: "Title", name: "title", widget: "string"}
+          - name: headline
+            label: Headline
+            widget: object
+            fields:
+              - {label: Headline title, name: title, widget: string}
+              - {label: Headline text, name: text, widget: markdown}
+          - {label: Story image, name: story_image, widget: image, required: false}
+
+
+      - file: "content/science.md"
+        label: "Science Page"
+        name: "science"
+        fields:
+          - { label: "Page theme", name: "page_theme", widget: "select", options: ['Select a theme', 'vivid-violet', allports]}
+          - { label: "Title", name: "title", widget: "string"}
+          - name: headline
+            label: Headline
+            widget: object
+            fields:
+              - {label: Headline title, name: title, widget: string}
+              - {label: Headline text, name: text, widget: markdown}
+
+
+
+
+  
+  #- name: "about"
+  #  label: "About"
+  #  folder: "content"
+  #  create: true
+  #  slug: "{{slug}}"
+  #  fields:
+  #    - { label: "Page theme", name: "page_theme", widget: "select", options: ['Select a theme', 'vivid-violet', allports]}
+  #    - { label: "Title", name: "title", widget: "string"}
+  #    - name: headline
+  #      label: Headline
+  #      widget: object
+  #      fields:
+  #        - {label: Headline title, name: title, widget: string}
+  #        - {label: Headline text, name: text, widget: markdown}
+  #    - {label: Story image, name: story_image, widget: image, required: false}
       #- { label: "Publish Date", name: "date", widget: "datetime" }
       #- { label: "Body", name: "body", widget: "markdown" }
       #- { label: "Subtitle", name: "subtitle", widget: "markdown"}
@@ -33,17 +78,17 @@ collections:
       #- { label: "Publish Date", name: "date", widget: "datetime" }
       #- { label: "Body", name: "body", widget: "markdown" }
 
-  - name: "science"
-    label: "Science"
-    folder: "content"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "Page theme", name: "page_theme", widget: "select", options: ['Select a theme', 'vivid-violet', allports]}
-      - { label: "Title", name: "title", widget: "string"}
-      - name: headline
-        label: Headline
-        widget: object
-        fields:
-          - {label: Headline title, name: title, widget: string}
-          - {label: Headline text, name: text, widget: markdown}
+  #- name: "science"
+  #  label: "Science"
+  #  folder: "content"
+  #  create: true
+  #  slug: "{{slug}}"
+  #  fields:
+  #    - { label: "Page theme", name: "page_theme", widget: "select", options: ['Select a theme', 'vivid-violet', allports]}
+  #    - { label: "Title", name: "title", widget: "string"}
+  #    - name: headline
+  #      label: Headline
+  #      widget: object
+  #      fields:
+  #        - {label: Headline title, name: title, widget: string}
+  #        - {label: Headline text, name: text, widget: markdown}
