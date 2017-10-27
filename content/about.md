@@ -8,15 +8,11 @@ headline:
     physics straight into health tech for women.
 
 
-
-
-    ![undefined](/uploads/elina-s.png)
-
-
+    ![Stockholm office](/uploads/nc_stockholm_office.png)
 
 
     ikèk
   title: Our story
-story_image: /uploads/elina-raoul.png
+story_image: /uploads/elina-s.png
 ---
 
