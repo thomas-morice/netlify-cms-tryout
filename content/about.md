@@ -6,6 +6,16 @@ headline:
     The idea of Natural Cycles came about when the founders, Elina and Raoul,
     were in search of an effective method of natural contraception. Going from
     physics straight into health tech for women.
+
+
+
+
+    ![undefined](/uploads/elina-s.png)
+
+
+
+
+    ikèk
   title: Our story
 story_image: /uploads/elina-raoul.png
 ---
